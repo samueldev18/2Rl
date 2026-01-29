@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import logo from '../assets/logo.png'
+import { useState } from "react";
+import logo from "../assets/logo.png";
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="header">
@@ -10,14 +10,14 @@ export default function Header() {
         <img src={logo} alt="2RL Logo" />
       </div>
 
-      <nav className={`nav ${open ? 'open' : ''}`}>
+      <nav className={`nav ${open ? "open" : ""}`}>
         <a href="#produtos" onClick={() => setOpen(false)}>Produtos</a>
         <a href="#sobre" onClick={() => setOpen(false)}>Sobre</a>
         <a href="#contato" onClick={() => setOpen(false)}>Contato</a>
       </nav>
 
       <button
-        className={`hamburger ${open ? 'active' : ''}`}
+        className={`hamburger ${open ? "active" : ""}`}
         onClick={() => setOpen(!open)}
       >
         <span />
@@ -25,5 +25,5 @@ export default function Header() {
         <span />
       </button>
     </header>
-  )
+  );
 }

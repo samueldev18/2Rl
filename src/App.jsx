@@ -1,29 +1,25 @@
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
 import Splash from './components/Splash'
 import Header from './components/Header'
-import Hero from './components/Hero'
-import Products from './components/Products'
-import About from './components/About'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import Home from './pages/Home'
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true)
+  const [loading, setLoading] = useState(true)
 
-  if (showSplash) {
-    return <Splash onFinish={() => setShowSplash(false)} />
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (loading) {
+    return <Splash />
   }
 
   return (
-    <>
+    <div className="app visible">
       <Header />
-      <Hero />
-      <Products />
-      <About />
-      <Contact />
-      <Footer />
-    </>
+      <Home />
+    </div>
   )
 }
 
