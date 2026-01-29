@@ -1,0 +1,119 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.header.scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.header-container {
+  width: 100%;             /* Ocupa a largura total disponível */
+  max-width: 100%;         /* Remove o limite de 1280px para encostar nas bordas */
+  margin: 0;               /* Remove a centralização automática */
+  padding: 18px 2%;        /* Diminuí de 8% para 2% para os itens "abrirem" */
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+/* ESQUERDA */
+.header-left .logo {
+  height: 40px;
+}
+
+/* DIREITA */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* NAV DESKTOP */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.nav-cta {
+  padding: 10px 22px;
+  background: var(--primary);
+  color: #fff !important;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 122, 0, 0.35);
+}
+
+/* HAMBURGUER MOBILE */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 40px 20px;
+    height: calc(100vh - 70px);
+    width: 250px;
+    transition: right 0.3s;
+  }
+
+  .nav.active {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

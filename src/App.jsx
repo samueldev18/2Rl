@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Splash from './components/Splash'
-import Header from './components/Header'
 import Home from './pages/Home'
+import Header from './components/Header/Header'
 
 function App() {
   const [loading, setLoading] = useState(true)
